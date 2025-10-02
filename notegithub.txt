@@ -1,0 +1,56 @@
+GitHub là một nền tảng trực tuyến rất phổ biến dành cho lập trình viên và các dự án phần mềm, giúp quản lý mã nguồn (code) 
+và cộng tác nhóm hiệu quả. Mình sẽ giải thích chi tiết từng phần để bạn hiểu rõ:
+
+Phần 1. GitHub là gì?
+GitHub là một dịch vụ lưu trữ mã nguồn dựa trên Git, cho phép bạn quản lý và theo dõi mọi thay đổi trong dự án phần mềm.
+Git là công cụ quản lý phiên bản (version control system) giúp bạn ghi lại lịch sử các thay đổi trong code, 
+phục hồi các phiên bản trước, hoặc làm việc cùng nhóm mà không sợ ghi đè code của nhau.
+GitHub kết hợp Git với giao diện web, giúp bạn lưu trữ, chia sẻ, cộng tác và triển khai dự án trực tuyến.
+
+
+
+Phần 2. Dùng GitHub để làm gì?
+GitHub có rất nhiều ứng dụng:
+1 Quản lý mã nguồn (Version Control)
+- Theo dõi lịch sử code: biết ai thay đổi gì, khi nào.
+- Khôi phục lại các phiên bản cũ nếu có lỗi.
+2 Cộng tác nhóm
+- Nhiều người cùng làm một dự án mà không lo ghi đè code.
+- Sử dụng nhánh (branch) để phát triển tính năng riêng, rồi gộp (merge) vào nhánh chính.
+3 Chia sẻ và học hỏi
+- Chia sẻ code với cộng đồng.
+- Xem và học dự án open-source từ các lập trình viên khác.
+4 Quản lý dự án (Project Management)
+- Tạo issue để theo dõi lỗi hoặc yêu cầu tính năng.
+- Dùng Projects để quản lý task, tiến độ dự án.
+5 Triển khai và hosting
+-GitHub Pages cho phép bạn host website tĩnh miễn phí.
+- Kết hợp CI/CD (ví dụ GitHub Actions) để tự động build, test, deploy.
+6 Portfolio cá nhân
+- Lưu trữ và giới thiệu các dự án của bạn để nhà tuyển dụng xem.
+
+
+
+Phần 3. Các cách sử dụng GitHub phổ biến
+1 Lưu trữ code cá nhân
+- Tạo repository (repo) để quản lý dự án của bạn.
+2 Hợp tác nhóm
+- Fork repo, tạo branch, pull request để đóng góp vào dự án khác.
+3 Theo dõi lịch sử code
+- Commit mỗi khi thay đổi, có message rõ ràng.
+4 Quản lý issue và task
+- Tạo issue, gán nhãn, assign người thực hiện.
+5 Triển khai website
+- Dùng GitHub Pages để host portfolio, blog, landing page.
+6 Tự động hóa
+- GitHub Actions: tự động test, build, deploy code mỗi khi có commit mới.
+
+
+
+Phần 4. Một số khái niệm cơ bản trên GitHub
+- Repository (Repo): Nơi lưu trữ dự án/code.
+- Branch: Nhánh phát triển song song trong dự án.
+- Commit: Ghi lại 1 thay đổi cụ thể trong code.
+- Pull Request (PR): Yêu cầu gộp code từ branch này sang branch khác.
+- Fork: Sao chép repo của người khác về tài khoản của bạn để chỉnh sửa.
+- Issue: Theo dõi bug, task, hoặc tính năng cần làm.
