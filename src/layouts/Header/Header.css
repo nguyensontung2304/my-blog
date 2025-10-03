@@ -2,6 +2,8 @@
   color: white;
   font-size: 30px;
   margin: 20px 0 10px 0;
+  margin-top: 50px;
+  line-height: px;
 }
 .header p {
   color: white;
@@ -13,4 +15,7 @@
   color: white;
   gap: 30px;
   margin-bottom: 20px;
+}
+.menu :hover {
+  color: pink;
 }
