@@ -23,6 +23,10 @@
   gap: 70px;
 }
 
+.menu :hover {
+  color: pink;
+}
+
 .footer_x {
   padding-bottom: 30px;
   border-bottom: 1px solid white;
