@@ -1,0 +1,31 @@
+.layout {
+  background-color: rgb(39, 39, 39);
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  padding: 20px 10px;
+  font-size: 20px;
+}
+.top {
+  color: rgb(164, 164, 5);
+  padding-bottom: 10px;
+  line-height: 1.5;
+}
+.top_number {
+  padding-right: 5px;
+  border-right: 1px solid white;
+  font-size: 15px;
+}
+.top_time {
+  padding-left: 5px;
+  font-size: 15px;
+}
+.text1 {
+  color: rgb(164, 164, 5);
+  padding-bottom: 10px;
+  line-height: 1.5;
+}
+.text2 {
+  color: white;
+  line-height: 1.5;
+}

@@ -1,0 +1,14 @@
+.detail {
+  color: white;
+  width: 60%;
+  margin: 0 auto;
+}
+.detail_title {
+  font-size: 30px;
+  color: yellow;
+  margin-bottom: 20px;
+}
+.detail_content {
+  line-height: 2;
+  margin-bottom: 20px;
+}

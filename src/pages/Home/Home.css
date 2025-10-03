@@ -1,0 +1,55 @@
+.topposts {
+  color: rgb(164, 164, 5);
+  margin-bottom: 40px;
+  margin-top: 30px;
+  font-size: 40px;
+}
+
+.newposts {
+  color: rgb(164, 164, 5);
+  margin-bottom: 40px;
+  margin-top: 30px;
+  font-size: 40px;
+}
+
+.login {
+  width: 70%;
+  margin-left: 10%;
+  color: white;
+  background-color: rgb(39, 39, 39);
+  padding: 30px;
+  border-radius: 10px;
+}
+.input {
+  border: 1px solid white;
+  border-radius: 10px;
+}
+.input p {
+  text-align: center;
+  padding: 10px 0;
+}
+.button {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.button span {
+  background-color: red;
+  border: 1px solid red;
+  border-radius: 10px;
+  padding: 15px 35px;
+}
+.trangtong {
+  margin-top: 100px;
+  margin-bottom: 30px;
+  text-align: end;
+}
+.trang {
+  color: red;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 15px 35px;
+  font-size: 18px;
+  font-weight: 500;
+}
+

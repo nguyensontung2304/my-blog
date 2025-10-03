@@ -1,0 +1,16 @@
+.header h3 {
+  color: white;
+  font-size: 30px;
+  margin: 20px 0 10px 0;
+}
+.header p {
+  color: white;
+  margin-bottom: 20px;
+}
+.menu {
+  display: flex;
+  margin-left: 20%;
+  color: white;
+  gap: 30px;
+  margin-bottom: 20px;
+}

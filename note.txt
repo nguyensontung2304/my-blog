@@ -1,0 +1,152 @@
+useffect :
+useEffect trong React là một hook dùng để xử lý các “tác vụ phụ” (side effects) trong function component.
+useEffect(setup, dependencies?)
+setup là function 
+dependensies cos 2 loại là không truyền tham số và có truyền nếu không truyền thì nó sẽ chạy 1 lần khi comnennt mouting còn nếu có truyền thì nó sẽ chạy khi value được thay đổi
+
+
+useState: useState trong React là một hook dùng để tạo và quản lý state (trạng thái) trong function component.
+const [state, setState] = useState(initialState)
+initialState:là tham số đầu tiên được truyền vào state
+state:là giá trị của useState 
+setState:dùng để thay đổi state khi séttate thay đổi thì state thay đổi và gán vào useState
+
+
+=================
+
+ đồng bộ: là code sẽ chạy từ trên xuống nếu code trên chạy chưa xong thì đợi chạy xong rồi chạy code dưới
+
+
+bất đồng bộ: là nếu code trên chạy chưa xong thì chạy code dưới trước rồi khi code trên chạy xong thì in ra
+
+những thứ gì là bất đồng bộ
+1. Các API liên quan tới thời gian
+setTimeout(callback, ms) → chạy callback sau ms mili giây.
+setInterval(callback, ms) → lặp lại callback sau mỗi ms mili giây.
+
+2. AJAX / Fetch API / HTTP request
+fetch(url)
+XMLHttpRequest (cũ hơn, ít dùng trong React).
+
+3. Promise:khi làm việc có bất đồng bộ thì kết quả trả về sẽ là promise
+Khi công việc thành công gọi resolve.
+Khi công việc thất bại gọi reject.
+Một Promise có 3 trạng thái chính:
+pending (đang chờ) → lúc mới tạo, chưa có kết quả.
+fulfilled (hoàn thành, resolved) → đã thành công, có dữ liệu.
+rejected (thất bại) → có lỗi xảy ra.
+
+.then(): khi trả về sữ liệu thành công thì sẽ chạy code ở đây
+.catch(): khi trả về sữ liệu thất bại thì sẽ chạy code ở đây
+.finally(): khi luôn chạy cuối cùng kể cả thành công hay thất bại
+async/await (cũng dựa trên Promise).
+
+4. Event listeners (sự kiện)
+addEventListener("click", callback)
+Sự kiện bàn phím, chuột, DOM events → callback chỉ chạy khi sự kiện xảy ra.
+
+
+api là gì: api là cầu nối giữa frontend và backend nếu frontend muốn lấy dữ liệu thì sẽ gọi đến api xong api gọi backend 
+backend trả dữ liệu cho api xong api trả dữ liệu về cho frontend
+
+request là gì: là gửi yêu cầu frontend gửi đến backend thông qua api như muốn làm làm lấy gì 
+có những gì:
+-method: là phương thức để backend biết muốn làm gì
+get: lấy dữ liệu
+post: gửi dữ liệu
+put: cập nhập dữ liệu
+delete: xóa dữ liệu
+-url của api: url nghĩa là nếu frontend gọi đến api thì phải dùng ủl này để biết cần lấy gì làm gì 
+trong url có thêm
+https://api.example.com/users/123/posts
+Domain: api.example.com
+Path: /users/123/posts
+path là tất cả phía sau domain còn params có thể có có thể không nếu có phải bên trong path nếu có thì có nghĩa là muốn chỉ định lấy 1 thứ cụ thể còn nếu không thì lấy toàn bộ nên không cần params
+query: nằm sau ?, để lọc, sắp xếp, phân trang.
+param: dùng để khi người dùng click vào bài posh có id là 10 thì url sẽ hiện số 10 ở cuối như trong route detail:id thì id chính là params nếu detail/1 thì chính là params.id 1
+nếu method là post hoặc put sẽ có thêm body trong request
+
+1. GET request (chỉ lấy dữ liệu): 
+GET /posts/7    
+👉 Server trả về bài viết id=7.
+
+2. POST request (tạo mới dữ liệu)
+Khi bạn muốn thêm một bài viết, bạn phải gửi nội dung nó trong body.
+POST /posts
+Content-Type: application/json
+{
+  "title": "Bài viết mới",
+  "content": "Nội dung bài viết"
+}
+👉 Server nhận body, lưu vào DB, rồi trả về bài viết mới có id.
+
+3. PUT request (cập nhật toàn bộ dữ liệu)
+Khi bạn muốn cập nhật lại toàn bộ dữ liệu của 1 bài viết.
+PUT /posts/7
+Content-Type: application/json
+{
+  "title": "Tiêu đề đã đổi",
+  "content": "Nội dung mới"
+}
+👉 Bài viết có id=7 sẽ bị ghi đè toàn bộ nội dung.
+
+4. PATCH request (cập nhật một phần dữ liệu)
+Khác với PUT, PATCH chỉ thay đổi 1 số trường.
+PATCH /posts/7
+Content-Type: application/json
+{
+  "title": "Chỉ đổi tiêu đề thôi"
+}
+👉 Chỉ title thay đổi, còn content giữ nguyên.
+
+👉 Tóm lại:
+GET: không có body (chỉ lấy dữ liệu).
+POST / PUT / PATCH: sẽ có body để gửi dữ liệu mới hoặc dữ liệu cập nhật.
+
+responsse là gì:Response chính là kết quả mà server trả về sau khi xử lý xong request
+có những gì:
+
+- data:
+JSON → phổ biến nhất trong API (vd: { "id": 1, "title": "Hello" })
+Text (chuỗi)
+HTML (nếu là response của website)
+File (pdf, hình ảnh, video…)
+
+- http status code: mã trạng thái
+các mã http:
+200 OK → thành công
+201 Created → tạo mới thành công
+400 Bad Request → request sai định dạng/tham số
+401 Unauthorized → chưa đăng nhập hoặc sai token
+404 Not Found → không tìm thấy tài nguyên
+500 Internal Server Error → lỗi server
+
+
+fetch sẽ trả về 1 promsie
+có thể .then được 
+  .then(callback) 
+mà callback này sẽ là 1 function được nhận data từ lần then trước đó
+
+
+
+fetch(api).then((data)=>{
+    //xu ly data
+ return data.json()
+    
+}).then(data=>setState(data))
+
+
+fetch("https://api.example.com/users/123", {
+  method: "PUT", // method: yêu cầu là cập nhật
+  headers: {
+    "Content-Type": "application/json", // cho server biết dữ liệu là JSON
+  },
+  body: JSON.stringify({
+    name: "Tùng",
+    email: "tung@example.com",
+  }), // body: dữ liệu gửi kèm
+})
+  .then((res) => res.json()) // đọc data trả về
+  .then((data) => console.log("Response:", data))
+  .catch((error) => console.error("Error:", error));
+  ⚠️ Lưu ý: Nếu API trả về text hoặc XML, bạn sẽ dùng response.text() hoặc response.blob() thay vì response.json().
