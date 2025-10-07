@@ -2,8 +2,12 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./PostItem.css";
 
-const PostItem = ({ data }) => {
+const PostItem = ({ data, theme = "card" }) => {
   const navigate = useNavigate();
+
+  if (theme === "link") {
+    return <a href="/detail/"> {data.title}</a>;
+  }
 
   return (
     <div className="layout" onClick={() => navigate("/detail/" + data.id)}>
