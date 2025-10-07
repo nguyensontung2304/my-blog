@@ -5,6 +5,7 @@ import NewPost from "./NewPost/NewPost";
 import ViewedPosts from "../../components/ViewedPosts/ViewedPosts";
 import React, { useEffect, useState } from "react";
 import Loading from "../../components/Loading/Loading";
+import Login from "./Login/Login";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -36,15 +37,7 @@ const Home = () => {
         <NewPost data={state} />
         <ViewedPosts data={state} />
         <TopPost data={state} />
-
-        <div className="login">
-          <div className="input">
-            <p>example@gmail.com</p>
-          </div>
-          <div className="button">
-            <span>Đăng ký</span>
-          </div>
-        </div>
+        <Login />
 
         <div className="trangtong">
           <span className="trang">Trang 2</span>
