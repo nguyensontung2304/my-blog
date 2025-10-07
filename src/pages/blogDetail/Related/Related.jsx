@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PostItem from "../../../components/PostItem/PostItem";
 import Loading from "../../../components/Loading/Loading";
+import "./related.css";
 
 function Related({ type }) {
   const [data, setData] = useState([]);
@@ -30,9 +31,9 @@ function Related({ type }) {
 
   return (
     <div>
-      <h1>Related posts</h1>
+      <h1 className="related">Related posts</h1>
       {relatedPosts.map((post) => (
-        <PostItem key={post.id} data={post} theme="link" />
+        <PostItem key={post.id} data={post} />
       ))}
     </div>
   );
