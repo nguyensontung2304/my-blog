@@ -1,45 +1,74 @@
 .login {
-  width: 700px;
-  background-color: rgb(39, 39, 39);
-  margin-left: 70px;
-  margin-top: 50px;
-  border-radius: 10px;
-}
-
-.name {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  background-color: rgb(160, 160, 160);
-  border-radius: 10px;
-  padding: 5px 0;
+  background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20230617/pngtree-meteor-showers-and-meteor-streaks-in-the-sky-image_2975226.jpg");
   width: 500px;
-  margin-left: 98px;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: rgba(255, 255, 255, 0.27) 0 0 34px;
+  transition: border 1.5s ease, box-shadow 0.5s ease;
+  padding: 30px 90px;
 }
 
-.text_name {
-  margin-left: 98px;
-  margin-bottom: 10px;
+.login:hover {
+  box-shadow: rgba(255, 255, 255, 0.333) 0 0 65px;
+  border: 1px solid rgb(252, 186, 197);
+  cursor: pointer;
+}
+
+.dangnhap {
+  font-size: 40px;
+  color: rgba(248, 62, 62, 0.764);
 }
 
 .email {
-  margin-bottom: 10px;
-  background-color: rgb(160, 160, 160);
-  border-radius: 10px;
-  padding: 5px 0;
-  width: 500px;
-  margin-left: 98px;
+  margin-bottom: 15px;
 }
 
-.text_email {
-  margin-left: 98px;
-  margin-bottom: 10px;
-}
-
-.button_login {
-  width: 130px;
-  height: 50px;
+.titleemail {
+  color: rgba(248, 62, 62, 0.764);
+  font-size: 20px;
   margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 283px;
+  margin-bottom: 7px;
+}
+
+.inputemail {
+  width: 100%;
+  display: block;
+  padding: 8px;
   border-radius: 10px;
+}
+
+.erroremail {
+  color: rgba(248, 62, 62, 0.764);
+  margin-top: 7px;
+  font-size: 15;
+}
+
+.pass {
+  margin-bottom: 15px;
+}
+
+.titlepass {
+  color: rgba(248, 62, 62, 0.764);
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 7px;
+}
+
+.inputpass {
+  width: 100%;
+  display: block;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.errorpass {
+  color: rgba(248, 62, 62, 0.764);
+  margin-top: 7px;
+  font-size: 15;
+}
+
+.button {
+  border-radius: 10px;
+  height: 30px;
+  width: 100px;
 }

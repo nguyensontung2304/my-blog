@@ -30,7 +30,7 @@ function NewPost(props) {
   return (
     <div>
       <ul>
-        <h2 className="newposts">New Posts</h2>
+        <h2 className="newposts">🏋️‍♂️ New Posts</h2>
         {sortedPosts.map((item) => (
           <PostItem data={item} />
         ))}
