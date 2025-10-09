@@ -5,7 +5,7 @@ import NewPost from "./NewPost/NewPost";
 import ViewedPosts from "../../components/ViewedPosts/ViewedPosts";
 import React, { useEffect, useState } from "react";
 import Loading from "../../components/Loading/Loading";
-import Login from "./Login/Login";
+import { Login } from "./Login/Login";
 
 const Home = () => {
   const navigate = useNavigate();

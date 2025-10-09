@@ -31,7 +31,7 @@ function Related({ type }) {
 
   return (
     <div>
-      <h1 className="related">Related posts</h1>
+      <h1 className="related">🏋️‍♂️ Related posts</h1>
       {relatedPosts.map((post) => (
         <PostItem key={post.id} data={post} />
       ))}

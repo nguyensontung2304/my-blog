@@ -18,4 +18,5 @@
 }
 .menu :hover {
   color: pink;
+  cursor: pointer;
 }
