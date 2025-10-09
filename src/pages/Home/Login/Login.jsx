@@ -1,56 +1,85 @@
-import React, { useEffect } from "react";
-import $ from "jquery";
+import React from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import "./Login.css";
 
-function Login() {
-  useEffect(() => {
-    // code jQuery chạy sau khi component mount
-    $("form").on("submit", function (e) {
-      e.preventDefault(); // ngăn form submit reload page
+export const Login = () => {
+  // ✅ Hàm validate thủ công
+  const validate = (values) => {
+    const errors = {};
 
-      const getName = $("input.name").val();
-      const getEmail = $("input.email").val();
+    if (!values.email) {
+      errors.email = "Bắt buộc nhập email";
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+      errors.email = "Email không hợp lệ";
+    }
 
-      if (!getName) {
-        $("p#name").text("Vui Lòng Nhập Họ Và Tên");
-      } else {
-        $("p#name").text("");
-      }
+    if (!values.password) {
+      errors.password = "Bắt buộc nhập mật khẩu";
+    } else if (values.password.length < 6) {
+      errors.password = "Mật khẩu ít nhất 6 ký tự";
+    }
 
-      if (!getEmail) {
-        $("p#email").text("Vui Lòng Nhập Địa Chỉ Email");
-      } else {
-        $("p#email").text("");
-      }
+    return errors;
+  };
 
-      if (getEmail && getName) {
-        alert("đăng nhập thành công");
-      }
-    });
-
-    // Cleanup khi component unmount
-    return () => {
-      $("form").off("submit");
-    };
-  }, []);
+  // 📨 Hàm submit
+  const handleSubmit = (values, { setSubmitting }) => {
+    console.log("Form values:", values);
+    setTimeout(() => {
+      alert(`Đăng nhập thành công với email: ${values.email}`);
+      setSubmitting(false);
+    }, 1000);
+  };
 
   return (
-    <form>
-      <div className="login">
-        <div>
-          <input className="name" placeholder="Họ và Tên" />
-          <p className="text_name" id="name" style={{ color: "red" }}></p>
-        </div>
-        <div>
-          <input className="email" placeholder="Email" />
-          <p className="text_email" id="email" style={{ color: "red" }}></p>
-        </div>
-        <button className="button_login" type="submit">
-          Login
-        </button>
-      </div>
-    </form>
-  );
-}
+    <div className="login">
+      <h2 className="dangnhap">Đăng nhập</h2>
+      <Formik
+        initialValues={{ email: "", password: "" }}
+        validate={validate}
+        onSubmit={handleSubmit}
+      >
+        {({ isSubmitting }) => (
+          <Form>
+            {/* Email */}
+            <div className="email">
+              <h3 className="titleemail">Email</h3>
+              <Field
+                className="inputemail"
+                type="email"
+                name="email"
+                placeholder="Nhập email"
+              />
+              <ErrorMessage
+                className="erroremail"
+                name="email"
+                component="div"
+              />
+            </div>
 
-export default Login;
+            {/* Password */}
+            <div className="pass">
+              <h3 className="titlepass">Mật khẩu</h3>
+              <Field
+                className="inputpass"
+                type="password"
+                name="password"
+                placeholder="Nhập mật khẩu"
+              />
+              <ErrorMessage
+                className="errorpass"
+                name="password"
+                component="div"
+              />
+            </div>
+
+            {/* Submit */}
+            <button className="button" type="submit" disabled={isSubmitting}>
+              {isSubmitting ? "Đang đăng nhập..." : "Đăng nhập"}
+            </button>
+          </Form>
+        )}
+      </Formik>
+    </div>
+  );
+};

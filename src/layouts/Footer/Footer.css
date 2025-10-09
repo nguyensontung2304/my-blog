@@ -25,6 +25,7 @@
 
 .menu :hover {
   color: pink;
+  cursor: pointer;
 }
 
 .footer_x {

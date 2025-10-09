@@ -39,7 +39,14 @@ rejected (thất bại) → có lỗi xảy ra.
 .then(): khi trả về sữ liệu thành công thì sẽ chạy code ở đây
 .catch(): khi trả về sữ liệu thất bại thì sẽ chạy code ở đây
 .finally(): khi luôn chạy cuối cùng kể cả thành công hay thất bại
+
+async và await là cặp đôi cực kỳ quan trọng trong JavaScript, đặc biệt khi bạn làm việc với API như trong Formik.
 async/await (cũng dựa trên Promise).
+async đặt trước hàm → cho phép dùng await bên trong.
+await có nghĩa là:
+“Đợi dòng này xong rồi mới chạy tiếp dòng sau.”
+Nên đoạn trên giống như code đồng bộ, nhưng thật ra vẫn chạy bất đồng bộ.
+khi đã dùng async/await thì code sẽ chạy từ trên xuống dưới như bình thuờng cho dù là bất đồng bộ
 
 4. Event listeners (sự kiện)
 addEventListener("click", callback)

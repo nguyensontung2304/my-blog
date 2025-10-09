@@ -22,7 +22,7 @@ function TopPost(props) {
 
   return (
     <div>
-      <h2 className="topposts">Top Posts</h2>
+      <h2 className="topposts">🏋️‍♂️ Top Posts</h2>
       {topPosts.map((item) => (
         <PostItem data={item} />
       ))}
