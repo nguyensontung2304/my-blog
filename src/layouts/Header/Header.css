@@ -9,6 +9,16 @@
   color: white;
   margin-bottom: 20px;
 }
+.header button {
+  display: inline-block;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  border-radius: 10px;
+  background-color: white;
+  color: red;
+  padding: 10px 40px;
+}
 .menu {
   display: flex;
   margin-left: 20%;
@@ -19,4 +29,7 @@
 .menu :hover {
   color: pink;
   cursor: pointer;
+}
+.header_button {
+  display: flex;
 }

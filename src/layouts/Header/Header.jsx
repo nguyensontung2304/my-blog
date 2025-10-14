@@ -19,8 +19,15 @@ function Header() {
   return (
     <div className="header">
       <div className="container">
-        <h3>ANONYSTICK</h3>
-        <p>= DEVELOPER BLOG =</p>
+        <div className="header_button">
+          <div>
+            <h3>ANONYSTICK</h3>
+            <p>= DEVELOPER BLOG =</p>
+          </div>
+          <div className="button">
+            <button onClick={() => navigate("/Login")}>Đăng Ký</button>
+          </div>
+        </div>
       </div>
 
       <ul className="menu">
