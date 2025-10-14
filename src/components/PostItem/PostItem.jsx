@@ -10,7 +10,7 @@ const PostItem = ({ data, theme = "card" }) => {
   }
 
   return (
-    <div className="layout" onClick={() => navigate("/detail/" + data.id)}>
+    <div className="postItem" onClick={() => navigate("/detail/" + data.id)}>
       <div className="top">
         <span className="top_number">{data.view}</span>
         <span className="top_time">{data.date}</span>

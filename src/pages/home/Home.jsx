@@ -1,15 +1,11 @@
-import { Link, useNavigate } from "react-router-dom";
-import "./Home.css";
-import TopPost from "./TopPost/TopPost";
-import NewPost from "./NewPost/NewPost";
-import ViewedPosts from "../../components/ViewedPosts/ViewedPosts";
 import React, { useEffect, useState } from "react";
 import Loading from "../../components/Loading/Loading";
-import { Login } from "./Login/Login";
+import ViewedPosts from "../../components/ViewedPosts/ViewedPosts";
+import "./Home.css";
+import NewPost from "./NewPost/NewPost";
+import TopPost from "./TopPost/TopPost";
 
 const Home = () => {
-  const navigate = useNavigate();
-
   const [state, setState] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -32,15 +28,15 @@ const Home = () => {
   }
 
   return (
-      <div className="container">
-        <NewPost data={state} />
-        <ViewedPosts data={state} />
-        <TopPost data={state} />
+    <div className="container">
+      <NewPost data={state} />
+      <ViewedPosts data={state} />
+      <TopPost data={state} />
 
-        <div className="pagination">
-          <span className="pagination_nextpage">Trang 2</span>
-        </div>
+      <div className="pagination">
+        <span className="pagination_nextpage">Trang 2</span>
       </div>
+    </div>
   );
 };
 export default Home;

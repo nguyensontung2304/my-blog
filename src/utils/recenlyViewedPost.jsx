@@ -14,7 +14,7 @@ export const addViewedPost = (post) => {
 
   // Thêm bài mới lên đầu
   const updatedPosts = [post, ...filtered];
- 
+
   // Giới hạn 5 bài
   localStorage.setItem(
     VIEWED_POSTS_KEY,

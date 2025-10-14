@@ -1,39 +1,26 @@
-.footer1 {
-  color: white;
-  border: 1px solid white;
-  background-color: gray;
+.footer {
+  /* color: white; */
+  /* border: 1px solid white; */
+  /* background-color: gray; */
   font-weight: 900;
 }
 
-.footer2 {
-  color: white;
-  border: 1px solid white;
-  background-color: black;
-  font-weight: 900;
+.footer_content {
+  padding: 15px 0;
+  border-top: 1px solid white;
 }
 
-.footer .menu {
+.footer_menu {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
-.menu {
+.footer_menu_item {
   color: white;
-  padding-left: 50px;
-  display: flex;
-  gap: 70px;
 }
-
-.menu :hover {
+.footer_menu_item:hover {
   color: pink;
   cursor: pointer;
-}
-
-.footer_x {
-  padding-bottom: 30px;
-  border-bottom: 1px solid white;
-}
-
-.footer_X {
-  padding-top: 30px;
-  border-top: 1px solid white;
 }

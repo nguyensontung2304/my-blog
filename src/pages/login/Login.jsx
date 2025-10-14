@@ -25,7 +25,7 @@ const SignupSchema = Yup.object().shape({
   ),
 });
 
-export const Login = () => {
+const Login = () => {
   // // ✅ Hàm validate thủ công
   // const validate = (values) => {
   //   const errors = {};
@@ -55,7 +55,7 @@ export const Login = () => {
   };
 
   return (
-    <div className="tong_login content-login">
+    <div className="content-login">
       <div className="login">
         <h2 className="dangnhap">Đăng nhập</h2>
         <Formik
@@ -148,3 +148,4 @@ export const Login = () => {
     </div>
   );
 };
+export default Login;

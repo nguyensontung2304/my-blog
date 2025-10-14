@@ -1,35 +1,50 @@
-.header h3 {
+.header_content_logo h3 {
   color: white;
   font-size: 30px;
   margin: 20px 0 10px 0;
-  margin-top: 50px;
   line-height: px;
 }
-.header p {
+.header_content_logo p {
   color: white;
+}
+
+.header_content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 20px;
 }
-.header button {
-  display: inline-block;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
-  border-radius: 10px;
-  background-color: white;
-  color: red;
-  padding: 10px 40px;
-}
-.menu {
+
+.header_menu {
   display: flex;
-  margin-left: 20%;
   color: white;
   gap: 30px;
-  margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
 }
-.menu :hover {
+
+.header_menu_item {
+  font-size: 20px;
+}
+
+.header_menu_item:hover {
   color: pink;
   cursor: pointer;
 }
-.header_button {
-  display: flex;
+
+.login-button {
+  padding: 10px 40px;
+  border-radius: 5px;
+  background-color: rgb(215, 20, 53);
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: rgb(252, 186, 197);
+  color: black;
+  transition: 0.3s;
+  transform: scale(1.05);
 }

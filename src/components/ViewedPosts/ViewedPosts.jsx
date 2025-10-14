@@ -1,21 +1,6 @@
-import { useState, useEffect } from "react";
-import { BLOG_DATA } from "../../constants/blogData";
+import { useEffect, useState } from "react";
+import { getViewedPosts } from "../../utils/recenlyViewedPost";
 import PostItem from "../PostItem/PostItem";
-
-// function ViewedPosts() {
-// const [viewedPosts, setViewedPosts] = useState([]);
-
-// useEffect(() => {
-//   const viewedPosts = getViewedPosts();
-//   const posts = BLOG_DATA.filter((item) => viewedPosts.includes(item.slug));
-//   console.log(posts);
-
-//   setViewedPosts(posts);
-// }, []);
-
-// if (!viewedPosts?.length) {
-//   return null;
-// }
 
 function ViewedPosts(props) {
   const [viewedPosts, setViewedPosts] = useState([]);
@@ -26,6 +11,8 @@ function ViewedPosts(props) {
     console.log(posts);
 
     setViewedPosts(posts);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (!viewedPosts?.length) {

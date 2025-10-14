@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Related from "./Related/Related";
-import "./BlogDetail.css";
 import Loading from "../../components/Loading/Loading";
+import "./BlogDetail.css";
+import Related from "./Related/Related";
+import { addViewedPost } from "../../utils/recenlyViewedPost";
 
 function BlogDetail() {
   const params = useParams();

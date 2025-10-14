@@ -12,33 +12,34 @@ function Header() {
     { label: "Search code", path: "/search" },
   ];
 
-  const lish = arr.map((value, index) => {
-    return <li key={index}>{value}</li>;
-  });
-
   return (
     <div className="header">
       <div className="container">
-        <div className="header_button">
-          <div>
+        <div className="header_content">
+          <div className="header_content_logo">
             <h3>ANONYSTICK</h3>
             <p>= DEVELOPER BLOG =</p>
           </div>
 
-          <div className="button">
-            <button onClick={() => navigate("/Login")}>Đăng Ký</button>
-          </div>
+          <button className="login-button" onClick={() => navigate("/Login")}>
+            Đăng Ký
+          </button>
         </div>
-      </div>
 
-      <ul className="menu">
-        {arr.map((item, index) => (
-          <li key={index} onClick={() => navigate(item.path)}>
-            {item.label}
-          </li>
-        ))}
-      </ul>
+        <ul className="header_menu">
+          {arr.map((item, index) => (
+            <li
+              className="header_menu_item"
+              key={index}
+              onClick={() => navigate(item.path)}
+            >
+              {item.label}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
+
 export default Header;

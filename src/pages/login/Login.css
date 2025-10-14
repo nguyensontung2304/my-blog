@@ -1,15 +1,8 @@
-.tong_login {
-  /* background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20230617/pngtree-meteor-showers-and-meteor-streaks-in-the-sky-image_2975226.jpg"); */
-  background-size: cover; /* giúp ảnh phủ hết toàn màn hình */
-  background-position: center; /* căn giữa ảnh */
-  background-repeat: no-repeat; /* không lặp ảnh */
-
-  min-height: 100vh; /* 100% chiều cao màn hình */
-  display: flex; /* để căn giữa login box */
+.content-login {
+  display: flex;
+  min-height: 60vh;
   justify-content: center;
   align-items: center;
-  margin: 0; /* bỏ margin thừa */
-  padding: 40px 0;
 }
 
 .login {
@@ -127,10 +120,4 @@
   color: rgba(248, 62, 62, 0.764);
   margin-top: 7px;
   font-size: 15;
-}
-
-.button {
-  border-radius: 10px;
-  height: 30px;
-  width: 100px;
 }
