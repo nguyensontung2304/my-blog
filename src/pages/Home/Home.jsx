@@ -37,7 +37,6 @@ const Home = () => {
         <NewPost data={state} />
         <ViewedPosts data={state} />
         <TopPost data={state} />
-        <Login />
 
         <div className="trangtong">
           <span className="trang">Trang 2</span>
