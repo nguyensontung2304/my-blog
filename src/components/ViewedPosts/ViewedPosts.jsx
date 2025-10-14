@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { BLOG_DATA } from "../../constants/blogData";
-import { getViewedPosts } from "../../pages/watchedpost/WatchedPost";
 import PostItem from "../PostItem/PostItem";
 
 // function ViewedPosts() {

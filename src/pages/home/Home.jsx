@@ -32,17 +32,15 @@ const Home = () => {
   }
 
   return (
-    <>
       <div className="container">
         <NewPost data={state} />
         <ViewedPosts data={state} />
         <TopPost data={state} />
 
-        <div className="trangtong">
-          <span className="trang">Trang 2</span>
+        <div className="pagination">
+          <span className="pagination_nextpage">Trang 2</span>
         </div>
       </div>
-    </>
   );
 };
 export default Home;

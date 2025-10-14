@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Related from "./Related/Related";
-import { addViewedPost } from "../watchedpost/WatchedPost";
 import "./BlogDetail.css";
 import Loading from "../../components/Loading/Loading";
 

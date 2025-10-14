@@ -24,6 +24,7 @@ function Header() {
             <h3>ANONYSTICK</h3>
             <p>= DEVELOPER BLOG =</p>
           </div>
+
           <div className="button">
             <button onClick={() => navigate("/Login")}>Đăng Ký</button>
           </div>

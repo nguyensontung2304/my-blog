@@ -12,18 +12,16 @@ import SearchCode from "./pages/searchCode/SearchCode";
 import { Login } from "./pages/Home/Login/Login";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
     <Router>
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />
           <Route path="/detail/:id" element={<BlogDetail />} />
           <Route path="/search" element={<SearchCode />} />
-          <Route path="login" element={<Login />} />
+          <Route path="/login" element={<Login />} />
         </Route>
       </Routes>
     </Router>
-  </React.StrictMode>
 );
 
 reportWebVitals();
