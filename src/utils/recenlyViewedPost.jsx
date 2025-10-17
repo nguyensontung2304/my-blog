@@ -1,34 +1,69 @@
-// utils/viewedPosts.js
+// // utils/viewedPosts.js
 
+// const VIEWED_POSTS_KEY = "viewedPosts";
+
+// /**
+//  * Thêm một bài viết vào danh sách đã xem
+//  * @param {Object} post - object bài viết {id, title, slug, date}
+//  */
+// export const addViewedPost = (post) => {
+//   const viewedPosts = JSON.parse(localStorage.getItem(VIEWED_POSTS_KEY)) || [];
+
+//   // Loại bỏ bài trùng
+//   const filtered = viewedPosts.filter((item) => item !== post);
+
+//   // Thêm bài mới lên đầu
+//   const updatedPosts = [post, ...filtered];
+
+//   // Giới hạn 5 bài
+//   localStorage.setItem(
+//     VIEWED_POSTS_KEY,
+//     JSON.stringify(updatedPosts.slice(0, 5))
+//   );
+// };
+
+// /**
+//  * Lấy danh sách bài đã xem
+//  * @returns {Array} - danh sách bài đã xem
+//  */
+// export const getViewedPosts = () => {
+//   try {
+//     return JSON.parse(localStorage.getItem(VIEWED_POSTS_KEY)) || [];
+//   } catch (error) {
+//     return [];
+//   }
+// };
+
+// ✅ utils/recenlyViewedPost.js
 const VIEWED_POSTS_KEY = "viewedPosts";
 
 /**
- * Thêm một bài viết vào danh sách đã xem
- * @param {Object} post - object bài viết {id, title, slug, date}
+ * Thêm 1 bài đã xem (lưu theo id)
+ * @param {string} id - id bài viết
  */
-export const addViewedPost = (post) => {
-  const viewedPosts = JSON.parse(localStorage.getItem(VIEWED_POSTS_KEY)) || [];
+export const addViewedPost = (id) => {
+  const viewedPosts =
+    JSON.parse(sessionStorage.getItem(VIEWED_POSTS_KEY)) || [];
 
-  // Loại bỏ bài trùng
-  const filtered = viewedPosts.filter((item) => item !== post);
+  // ❗ Sửa chỗ này: lọc bỏ trùng id
+  const filtered = viewedPosts.filter((item) => item !== id);
 
-  // Thêm bài mới lên đầu
-  const updatedPosts = [post, ...filtered];
+  // ❗ Sửa chỗ này: thêm id mới lên đầu
+  const updatedPosts = [id, ...filtered];
 
-  // Giới hạn 5 bài
-  localStorage.setItem(
+  // ❗ Giới hạn 5 bài rồi lưu lại
+  sessionStorage.setItem(
     VIEWED_POSTS_KEY,
     JSON.stringify(updatedPosts.slice(0, 5))
   );
 };
 
 /**
- * Lấy danh sách bài đã xem
- * @returns {Array} - danh sách bài đã xem
+ * Lấy danh sách bài đã xem (trả về mảng id)
  */
 export const getViewedPosts = () => {
   try {
-    return JSON.parse(localStorage.getItem(VIEWED_POSTS_KEY)) || [];
+    return JSON.parse(sessionStorage.getItem(VIEWED_POSTS_KEY)) || [];
   } catch (error) {
     return [];
   }

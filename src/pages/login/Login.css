@@ -6,13 +6,15 @@
 }
 
 .login {
-  background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20230617/pngtree-meteor-showers-and-meteor-streaks-in-the-sky-image_2975226.jpg");
-  width: 500px;
+  /* background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20230617/pngtree-meteor-showers-and-meteor-streaks-in-the-sky-image_2975226.jpg"); */
+  width: 1000px;
+  height: 500px;
   margin: 0 auto;
   border-radius: 10px;
   box-shadow: rgba(255, 255, 255, 0.27) 0 0 34px;
   transition: border 1.5s ease, box-shadow 0.5s ease;
-  padding: 30px 90px;
+  z-index: 2;
+  display: flex;
 }
 
 .login:hover {
@@ -21,103 +23,88 @@
   cursor: pointer;
 }
 
+.login_left {
+  width: 600px;
+  text-align: center;
+}
+
+.login_left h1 {
+  color: rgba(248, 62, 62, 0.764);
+  font-size: 40px;
+  margin-top: 15px;
+  padding-bottom: 10px;
+}
+
+.login_left h2 {
+  color: rgba(248, 62, 62, 0.764);
+  font-size: 20px;
+}
+
+.login_right {
+  display: inline-block;
+  padding-left: 20px;
+  padding-top: 15px;
+  width: 400px;
+  background-color: rgba(52, 52, 52, 0.5);
+}
+
 .dangnhap {
   font-size: 40px;
   color: rgba(248, 62, 62, 0.764);
 }
 
-.ten {
-  display: flex;
-}
-
-.firstName {
-  margin-right: 150px;
-}
-
-.titlefirstName {
-  color: rgba(248, 62, 62, 0.764);
-  font-size: 20px;
-  margin-top: 10px;
-  margin-bottom: 7px;
-}
-
-.inputfirstName {
-  width: 120%;
-  display: block;
-  padding: 8px;
-  border-radius: 10px;
-}
-
-.errorfirstName {
-  color: rgba(248, 62, 62, 0.764);
-  margin-top: 7px;
-  font-size: 15;
-}
-
-.titlelastName {
-  color: rgba(248, 62, 62, 0.764);
-  font-size: 20px;
-  margin-top: 10px;
-  margin-bottom: 7px;
-}
-
-.inputlastName {
-  width: 120%;
-  display: block;
-  padding: 8px;
-  border-radius: 10px;
-}
-
-.errorlastName {
-  color: rgba(248, 62, 62, 0.764);
-  margin-top: 7px;
-  font-size: 15;
-}
-
-.email {
+.login_email {
   margin-bottom: 15px;
 }
 
-.titleemail {
+.login_titleemail {
   color: rgba(248, 62, 62, 0.764);
   font-size: 20px;
   margin-top: 10px;
   margin-bottom: 7px;
 }
 
-.inputemail {
-  width: 100%;
+.login_inputemail {
+  width: 200px;
   display: block;
   padding: 8px;
   border-radius: 10px;
 }
 
-.erroremail {
+.login_erroremail {
   color: rgba(248, 62, 62, 0.764);
   margin-top: 7px;
   font-size: 15;
 }
 
-.pass {
+.login_pass {
   margin-bottom: 15px;
 }
 
-.titlepass {
+.login_titlepass {
   color: rgba(248, 62, 62, 0.764);
   font-size: 20px;
   margin-top: 10px;
   margin-bottom: 7px;
 }
 
-.inputpass {
-  width: 100%;
+.login_inputpass {
+  width: 200px;
   display: block;
   padding: 8px;
   border-radius: 10px;
 }
 
-.errorpass {
+.login_errorpass {
   color: rgba(248, 62, 62, 0.764);
   margin-top: 7px;
   font-size: 15;
+}
+
+.login_button {
+  border-radius: 5px;
+  width: 100px;
+  height: 30px;
+  font-size: 15px;
+  font-weight: 550;
 }

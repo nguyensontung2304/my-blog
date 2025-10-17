@@ -22,6 +22,13 @@ function Header() {
           </div>
 
           <button className="login-button" onClick={() => navigate("/Login")}>
+            Đăng Nhập
+          </button>
+
+          <button
+            className="register-button"
+            onClick={() => navigate("/Register")}
+          >
             Đăng Ký
           </button>
         </div>
