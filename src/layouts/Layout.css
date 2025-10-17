@@ -14,10 +14,10 @@
 
 .layout:has(.content-login)::before {
   content: "";
-  inset: 0;
-  background-color: rgba(235, 235, 235, 0); /*điều chỉnh độ mờ ở đây*/
-  z-index: 1;
-  position: absolute;
+  /* inset: 0; */
+  /* background-color: rgba(235, 235, 235, 0);  */
+  /* z-index: 1; */
+  /* position: absolute; */
 }
 
 .layout_content {

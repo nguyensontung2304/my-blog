@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import "./Login.css";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const SignupSchema = Yup.object().shape({
   email: Yup.string().required("bắt buộc nhập"),
@@ -9,67 +10,10 @@ const SignupSchema = Yup.object().shape({
 });
 
 const Login = () => {
-  // // ✅ Hàm validate thủ công
-  // const validate = (values) => {
-  //   const errors = {};
+  const { login, isLoading, isError } = useContext(AuthContext);
 
-  //   if (!values.email) {
-  //     errors.email = "Bắt buộc nhập email";
-  //   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-  //     errors.email = "Email không hợp lệ";
-  //   }
-
-  //   if (!values.password) {
-  //     errors.password = "Bắt buộc nhập mật khẩu";
-  //   } else if (values.password.length < 6) {
-  //     errors.password = "Mật khẩu ít nhất 6 ký tự";
-  //   }
-
-  //   return errors;
-  // };
-
-  // 📨 Hàm submit
-  //   const handleSubmit = (values, { setSubmitting }) => {
-  //     console.log("Form values:", values);
-  //     setTimeout(() => {
-  //       alert(`Bạn đã đăng nhập thành công với email: ${values.email}`);
-  //       setSubmitting(false);
-  //     }, 1000);
-  //   };
-  const handleSubmit = (values, { setSubmitting, setErrors }) => {
-    const users = JSON.parse(sessionStorage.getItem("users")) || [];
-
-    let newErrors = {}; // lưu lỗi
-
-    // Tìm user theo email
-    const user = users.find((u) => u.email === values.email);
-
-    // Nếu không có user => cả email & password đều coi là sai
-    if (!user) {
-      newErrors.email = "Email không chính xác";
-      newErrors.password = "Mật khẩu không chính xác";
-    } else {
-      // Nếu có user nhưng sai mật khẩu
-      if (user.password !== values.password) {
-        newErrors.password = "Mật khẩu không chính xác";
-      }
-    }
-
-    // Nếu có lỗi thì hiển thị cả hai
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      setSubmitting(false);
-      return;
-    }
-
-    // ✅ Đăng nhập thành công
-    setTimeout(() => {
-      alert(
-        `✅ Đăng nhập thành công! Xin chào ${user.firstName} ${user.lastName}`
-      );
-      sessionStorage.setItem("loggedInUser", JSON.stringify(user));
-      setSubmitting(false);
-    }, 1000);
+  const handleSubmit = async (values, { setSubmitting, setErrors }) => {
+    login(values.email, values.password);
   };
 
   return (
@@ -83,10 +27,9 @@ const Login = () => {
           <h2 className="dangnhap">Đăng Nhập</h2>
           <Formik
             initialValues={{
-              email: "",
-              password: "",
+              email: "Lindsey22@hotmail.com",
+              password: "LaazSPXb1XnxJUn",
             }}
-            // validate={validate}
             validationSchema={SignupSchema}
             onSubmit={handleSubmit}
           >
@@ -124,13 +67,14 @@ const Login = () => {
                   />
                 </div>
 
+                {isError && <div>Tai khoan hoac mat khau khong chinh xac </div>}
                 {/* Submit */}
                 <button
                   className="login_button"
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={isLoading}
                 >
-                  {isSubmitting ? "Đang Đăng Nhập..." : "Đăng Nhập"}
+                  {isLoading ? "Đang Đăng Nhập..." : "Đăng Nhập"}
                 </button>
               </Form>
             )}
