@@ -4,25 +4,8 @@ import * as Yup from "yup";
 import "./Login.css";
 
 const SignupSchema = Yup.object().shape({
-  firstName: Yup.string()
-    .min(2, "quá ngắn")
-    .max(10, "quá dài")
-    .required("bắt buộc nhập"),
-  lastName: Yup.string()
-    .min(2, "quá ngắn")
-    .max(10, "quá dài")
-    .required("bắt buộc nhập"),
-  email: Yup.string()
-    .email("email không đúng định dạng")
-    .required("bắt buộc nhập"),
-  password: Yup.string()
-    .min(8, "mật khẩu ít nhất phải có 8 ký tự")
-    .matches(/[a-zA-Z]/, "Password can only contain Latin letters.")
-    .required("bắt buộc nhập"),
-  passwordConfirmation: Yup.string().oneOf(
-    [Yup.ref("password"), null],
-    "mật khẩu phải trùng khớp"
-  ),
+  email: Yup.string().required("bắt buộc nhập"),
+  password: Yup.string().required("bắt buộc nhập"),
 });
 
 const Login = () => {
@@ -46,10 +29,45 @@ const Login = () => {
   // };
 
   // 📨 Hàm submit
-  const handleSubmit = (values, { setSubmitting }) => {
-    console.log("Form values:", values);
+  //   const handleSubmit = (values, { setSubmitting }) => {
+  //     console.log("Form values:", values);
+  //     setTimeout(() => {
+  //       alert(`Bạn đã đăng nhập thành công với email: ${values.email}`);
+  //       setSubmitting(false);
+  //     }, 1000);
+  //   };
+  const handleSubmit = (values, { setSubmitting, setErrors }) => {
+    const users = JSON.parse(sessionStorage.getItem("users")) || [];
+
+    let newErrors = {}; // lưu lỗi
+
+    // Tìm user theo email
+    const user = users.find((u) => u.email === values.email);
+
+    // Nếu không có user => cả email & password đều coi là sai
+    if (!user) {
+      newErrors.email = "Email không chính xác";
+      newErrors.password = "Mật khẩu không chính xác";
+    } else {
+      // Nếu có user nhưng sai mật khẩu
+      if (user.password !== values.password) {
+        newErrors.password = "Mật khẩu không chính xác";
+      }
+    }
+
+    // Nếu có lỗi thì hiển thị cả hai
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      setSubmitting(false);
+      return;
+    }
+
+    // ✅ Đăng nhập thành công
     setTimeout(() => {
-      alert(`Đăng nhập thành công với email: ${values.email}`);
+      alert(
+        `✅ Đăng nhập thành công! Xin chào ${user.firstName} ${user.lastName}`
+      );
+      sessionStorage.setItem("loggedInUser", JSON.stringify(user));
       setSubmitting(false);
     }, 1000);
   };
@@ -57,93 +75,67 @@ const Login = () => {
   return (
     <div className="content-login">
       <div className="login">
-        <h2 className="dangnhap">Đăng nhập</h2>
-        <Formik
-          initialValues={{
-            email: "",
-            password: "",
-            firstName: "",
-            lastName: "",
-          }}
-          // validate={validate}
-          validationSchema={SignupSchema}
-          onSubmit={handleSubmit}
-        >
-          {({ isSubmitting }) => (
-            <Form>
-              <div className="ten">
-                {/* firstName */}
-                <div className="firstName">
-                  <h3 className="titlefirstName">FirstName</h3>
+        <div className="login_left">
+          <h1>ANONYSTICK</h1>
+          <h2>= DEVELOPER BLOG =</h2>
+        </div>
+        <div className="login_right">
+          <h2 className="dangnhap">Đăng Nhập</h2>
+          <Formik
+            initialValues={{
+              email: "",
+              password: "",
+            }}
+            // validate={validate}
+            validationSchema={SignupSchema}
+            onSubmit={handleSubmit}
+          >
+            {({ isSubmitting }) => (
+              <Form>
+                {/* Email */}
+                <div className="login_email">
+                  <h3 className="login_titleemail">Email</h3>
                   <Field
-                    className="inputfirstName"
-                    type="firstName"
-                    name="firstName"
-                    placeholder="Nhập firstName"
+                    className="login_inputemail"
+                    type="email"
+                    name="email"
+                    placeholder="Nhập email"
                   />
                   <ErrorMessage
-                    className="errorfirstName"
-                    name="firstName"
+                    className="login_erroremail"
+                    name="email"
                     component="div"
                   />
                 </div>
 
-                {/* lastName */}
-                <div className="lastName">
-                  <h3 className="titlelastName">LastName</h3>
+                {/* Password */}
+                <div className="login_pass">
+                  <h3 className="login_titlepass">Mật khẩu</h3>
                   <Field
-                    className="inputlastName"
-                    type="lastName"
-                    name="lastName"
-                    placeholder="Nhập lastName"
+                    className="login_inputpass"
+                    type="password"
+                    name="password"
+                    placeholder="Nhập mật khẩu"
                   />
                   <ErrorMessage
-                    className="errorlastName"
-                    name="lastName"
+                    className="login_errorpass"
+                    name="password"
                     component="div"
                   />
                 </div>
-              </div>
 
-              {/* Email */}
-              <div className="email">
-                <h3 className="titleemail">Email</h3>
-                <Field
-                  className="inputemail"
-                  type="email"
-                  name="email"
-                  placeholder="Nhập email"
-                />
-                <ErrorMessage
-                  className="erroremail"
-                  name="email"
-                  component="div"
-                />
-              </div>
-
-              {/* Password */}
-              <div className="pass">
-                <h3 className="titlepass">Mật khẩu</h3>
-                <Field
-                  className="inputpass"
-                  type="password"
-                  name="password"
-                  placeholder="Nhập mật khẩu"
-                />
-                <ErrorMessage
-                  className="errorpass"
-                  name="password"
-                  component="div"
-                />
-              </div>
-
-              {/* Submit */}
-              <button className="button" type="submit" disabled={isSubmitting}>
-                {isSubmitting ? "Đang đăng nhập..." : "Đăng nhập"}
-              </button>
-            </Form>
-          )}
-        </Formik>
+                {/* Submit */}
+                <button
+                  className="login_button"
+                  type="submit"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Đang Đăng Nhập..." : "Đăng Nhập"}
+                </button>
+              </Form>
+            )}
+          </Formik>
+        </div>
       </div>
     </div>
   );

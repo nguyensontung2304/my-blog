@@ -4,11 +4,13 @@ import ViewedPosts from "../../components/ViewedPosts/ViewedPosts";
 import "./Home.css";
 import NewPost from "./NewPost/NewPost";
 import TopPost from "./TopPost/TopPost";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [state, setState] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setLoading(true);
@@ -29,12 +31,17 @@ const Home = () => {
 
   return (
     <div className="container">
-      <NewPost data={state} />
       <ViewedPosts data={state} />
+      <NewPost data={state} />
       <TopPost data={state} />
 
       <div className="pagination">
-        <span className="pagination_nextpage">Trang 2</span>
+        <button
+          onClick={() => navigate("/BlogDetail2")}
+          className="pagination_nextpage"
+        >
+          Trang 2
+        </button>
       </div>
     </div>
   );
